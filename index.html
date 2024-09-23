@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="game-screen">
+            <!-- Scoreboard -->
+            <div class="scoreboard">
+              <div class="title">ROCK <br> PAPER <br> SCISSORS</div>
+              <div class="score-container">
+                 <div class="score-card">
+                   <span class="score-label">COMPUTER SCORE</span>
+                   <span class="computerScore score">0</span>
+                 </div>
+                 <div class="score-card">
+                   <span class="score-label">YOUR <br> SCORE</span>
+                   <span class="your Score score">0</span>
+                 </div>
+             </div>
+            </div>
+          
+           
+            
+          <!-- Player Choices Section -->
+          <div class="choices">
+            <div class="choice-card" id="rock">
+              <img src="./images/icons8-fist-67 1.png"  height="58.51px" width="80px" alt="Rock" class="choice-img">
+            </div>
+            <div class="choice-card" id="paper">
+              <img src="./images/icons8-hand-64 1.png" height="72px" width="72px" alt="Paper" class="choice-img">
+            </div>
+            <div class="choice-card" id="scissors">
+              <img src="./images/17911 1.png" height="54px" width="37px"  alt="Scissors" class="choice-img">
+            </div>
+            <!-- Connecting lines -->
+               <div class="line rock-scissors"></div>
+                <div class="line scissors-paper"></div>
+                <div class="line rock-paper"></div>
+          </div>
+               
+           <!-- Result Zone -->
+        <div class="result-zone">
+          <div class="side">
+            <div class="side-text">YOU PICKED</div>
+            <div class="user-side-icon">
+              <div class="side-icon" id="user-rock">
+                <img src="./images/icons8-fist-67 1.png"  height="58.51px" width="80px" />
+              </div>
+              <div class="side-icon" id="user-scissor">
+                <img src="./images/17911 1.png"  height="54px" width="37px" />
+              </div>
+              <div class="side-icon" id="user-paper">
+                <img src="./images/icons8-hand-64 1.png"  height="72px" width="72px" />
+              </div>
+            </div>
+          </div>
+          <div class="result">
+            <div class="result-text" id="win-text">YOU WIN</div>
+            <div class="result-text" id="lost-text">YOU LOST</div>
+            <div class="result-text" id="tie-text">TIE UP</div>
+            <div class="sub-text">AGAINST PC</div>
+            <button class="playBtn">PLAY AGAIN</button>
+            <button class="replayBtn">REPLAY</button>
+          </div>
+          <div class="side">
+            <div class="side-text">PC PICKED</div>
+            <div class="pc-side-icon" >
+              <div class="side-icon" id="pc-rock">
+                <img class="rock" src="./images/icons8-fist-67 1.png"  height="58.51px" width="80px" />
+              </div>
+              <div class="side-icon" id="pc-scissor">
+                <img src="./images/17911 1.png"  height="54px" width="37px" />
+              </div>
+              <div class="side-icon" id="pc-paper">
+                <img class="paper" src="./images/icons8-hand-64 1.png"  height="72px" width="72px"  />
+              </div>
+            </div>
+          </div>
+        </div>
+       
+         <!-- Rules  -->
+        
+        <footer>
+          <button class="rules-btn">RULES</button>
+          <button class="next-btn"  onclick="window.location.href='winner.html'">NEXT</button>
+        </footer>
+         
+
+          <div id="rulesModal" class="modal">
+            <div class="modal-content">
+              <span class="close-btn">X</span>
+              <h2>Game Rules</h2>
+              <ul class="rules-list">
+                <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                <li>If both players lay down the same hand, each player lays down another hand</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

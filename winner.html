@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winner Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
+    <style>
+        body {
+           
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(140, 196, 97, 1); 
+        }
+       .winner-container {
+            text-align: center;
+          margin-top: 80px;
+           
+        } 
+       
+        .trophy{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  padding-bottom: 2rem;
+  height: 55%;
+  position: relative;
+  width: 100%;
+}
+
+.stars{
+  position: absolute;
+}
+
+        .hurray-text {
+            font-family: Roboto;
+            font-size: 91px;
+            font-weight: 600;
+            line-height: 106.64px;
+            letter-spacing: 0.1em;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+           
+                    
+           
+
+
+            
+        }
+        
+        .sub-text {
+            font-family: Roboto;
+            font-size: 41px;
+            font-weight: 600;
+            line-height: 48.05px;
+            letter-spacing: 0.1em;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+
+        }
+        
+        .play-again-btn {
+            margin-top: 15px;
+            width: 174px;
+            height: 44px;
+            top: 639px;
+            left: 581px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 1);
+            font-family: Roboto;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 17.58px;
+            letter-spacing: 0.1em;
+            color: rgba(107, 107, 107, 1);
+            border-style: none;
+
+
+
+        }
+      
+        .rules-btn{
+            position: fixed;
+    bottom: 2%;
+    right: 2%;
+    background: transparent;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 119px;
+    height: 40px;
+    color:  rgba(255, 255, 255, 1);
+    background: rgba(140, 196, 97, 1);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 1);
+    font-family: Roboto;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 24.61px;
+    letter-spacing: 0.1em;
+        }
+        .rules-btn:hover {
+    transform: scale(1.1);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    right: 40px;
+    bottom: 80px;
+    width: 278px;
+    height: 325px;
+    border-radius: 13px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: rgba(0, 68, 41, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    border: 7px solid rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15.23px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: -27px;
+    right: -27px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 7px solid rgba(255, 255, 255, 1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    
+}
+
+/* Modal header */
+h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 29px;
+    font-weight: 500;
+}
+
+/* Rules list */
+.rules-list {
+    list-style-position: inside;
+    list-style-type: square;
+    margin-left: -32px;
+}
+
+.rules-list li {
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.rules-list li::before {
+    content: "\25A0"; /* Square bullet point */
+    color: rgba(255, 214, 0, 1);
+    margin-right: 8px;
+}
+
+
+
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background: #ffd300;
+    top: 0;
+    opacity: 0;
+}
+.confetti-piece:nth-child(1) {
+    left: 7%;
+    -webkit-transform: rotate(-40deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 182ms;
+    -webkit-animation-duration: 1116ms;
+}
+.confetti-piece:nth-child(2) {
+    left: 14%;
+    -webkit-transform: rotate(4deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 161ms;
+    -webkit-animation-duration: 1076ms;
+}
+.confetti-piece:nth-child(3) {
+    left: 21%;
+    -webkit-transform: rotate(-51deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 481ms;
+    -webkit-animation-duration: 1103ms;
+}
+.confetti-piece:nth-child(4) {
+    left: 28%;
+    -webkit-transform: rotate(61deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 334ms;
+    -webkit-animation-duration: 708ms;
+}
+.confetti-piece:nth-child(5) {
+    left: 35%;
+    -webkit-transform: rotate(-52deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 302ms;
+    -webkit-animation-duration: 776ms;
+}
+.confetti-piece:nth-child(6) {
+    left: 42%;
+    -webkit-transform: rotate(38deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 180ms;
+    -webkit-animation-duration: 1168ms;
+}
+.confetti-piece:nth-child(7) {
+    left: 49%;
+    -webkit-transform: rotate(11deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 395ms;
+    -webkit-animation-duration: 1200ms;
+}
+.confetti-piece:nth-child(8) {
+    left: 56%;
+    -webkit-transform: rotate(49deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 14ms;
+    -webkit-animation-duration: 887ms;
+}
+.confetti-piece:nth-child(9) {
+    left: 63%;
+    -webkit-transform: rotate(-72deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 149ms;
+    -webkit-animation-duration: 805ms;
+}
+.confetti-piece:nth-child(10) {
+    left: 70%;
+    -webkit-transform: rotate(10deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 351ms;
+    -webkit-animation-duration: 1059ms;
+}
+.confetti-piece:nth-child(11) {
+    left: 77%;
+    -webkit-transform: rotate(4deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 307ms;
+    -webkit-animation-duration: 1132ms;
+}
+.confetti-piece:nth-child(12) {
+    left: 84%;
+    -webkit-transform: rotate(42deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 464ms;
+    -webkit-animation-duration: 776ms;
+}
+.confetti-piece:nth-child(13) {
+    left: 91%;
+    -webkit-transform: rotate(-72deg);
+    -webkit-animation: makeItRain 1000ms infinite ease-out;
+    -webkit-animation-delay: 429ms;
+    -webkit-animation-duration: 818ms;
+}
+.confetti-piece:nth-child(odd) {
+    background: #7431e8;
+}
+.confetti-piece:nth-child(even) {
+    z-index: 1;
+}
+.confetti-piece:nth-child(4n) {
+    width: 5px;
+    height: 12px;
+    -webkit-animation-duration: 2000ms;
+}
+.confetti-piece:nth-child(3n) {
+    width: 3px;
+    height: 10px;
+    -webkit-animation-duration: 2500ms;
+    -webkit-animation-delay: 1000ms;
+}
+.confetti-piece:nth-child(4n-7) {
+  background: red;
+}
+@-webkit-keyframes makeItRain {
+    from {opacity: 0;}
+    50% {opacity: 1;}
+    to {-webkit-transform: translateY(350px);}
+} 
+.neon-trophy {
+
+  animation: neon-glow 2.5s infinite alternate;
+  border-radius: 10px;
+}
+
+@keyframes neon-glow {
+ 
+  100% {
+    filter:  drop-shadow(0 0 10px  #ffffff)  drop-shadow(0 0 100px  #fdfd09);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="winner-container">
+        <div class="trophy">
+            <img class="neon-trophy" src="images/Vector (1).png"  height="201" width="200.73" alt="Trophy">
+            <img src="images/Group 5.png" alt="stars" class="stars" />
+        </div>
+        <div class="hurray-text">HURRAY!!</div>
+        <div class="sub-text">YOU WON THE GAME</div>
+        <button class="play-again-btn" onclick="window.location.href='index.html'">PLAY AGAIN</button>
+        <button class="rules-btn">RULES</button>
+       
+    </div>
+    <div class="confetti">
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+    </div>
+    
+     <!-- Rules Modal -->
+     <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Game Rules</h2>
+            <ul class="rules-list">
+                <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                <li>If both players lay down the same hand, each player lays down another hand</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        
+   // Open and close modal logic
+const rulesModal = document.getElementById("rulesModal");
+const rulesBtn = document.querySelectorAll(".rules-btn");
+const closeBtn = document.querySelector(".close-btn");
+
+// Open modal when Rules button is click
+rulesBtn.forEach(button => {
+    button.addEventListener('click', () => {
+        rulesModal.style.display = "block";
+    });
+});
+
+// Close modal when 'X' button is clicked
+closeBtn.addEventListener('click', () => {
+    rulesModal.style.display = "none";
+});
+
+// Correct the play again button selector
+const playAgainBtn = document.querySelector(".play-again-btn");
+
+// Reset scores and redirect back to main game page when "Play Again" is clicked
+playAgainBtn.addEventListener("click", () => {
+    // Reset the scores in localStorage
+    localStorage.setItem("scores", JSON.stringify({ user: 0, computer: 0 }));
+
+    // Redirect to the main game page (index.html)
+    window.location.href = 'index.html';  // Adjust the path to your main page if needed
+});
+    </script>
+</body>
+</html>
