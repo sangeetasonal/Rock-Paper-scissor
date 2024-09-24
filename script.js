@@ -166,8 +166,8 @@ const updateResultZone = (result, userChoice, compChoice) => {
 
     
     if (userChoice === 1) userRock.classList.add("winner-animation");
-        if (userChoice === 2) userPaper.classList.add("winner-animation");
-        if (userChoice === 3) userScissor.classList.add("winner-animation");
+    if (userChoice === 2) userPaper.classList.add("winner-animation");
+    if (userChoice === 3) userScissor.classList.add("winner-animation");
   } else if (result === "comp") {
     winText.style.display = "none";
     tieText.style.display = "none";
